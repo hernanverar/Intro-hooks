@@ -1,15 +1,16 @@
 import React, {useState} from "react";
 
 function Counter() {
-  const [bundle, setBundle] = useState({"hidden": false, "counter": 0});
+
+  const [counter, setCounter] = useState(0);
+  const [hidden, setHidden] = useState(false);
 
   return (
     <React.Fragment>
-    {bundle.hidden ? <h1>Count Hidden</h1> : <h1>{bundle.counter}</h1>} 
-
-    <button onClick={() => setBundle({...bundle, "counter": bundle.counter +1})}>Count!</button>
-    <button onClick={() => setBundle({...bundle, "hidden": !bundle.hidden})}>Hide/Show</button>
-  </React.Fragment>
+      {hidden ? <h1>Count Hidden</h1> : <h1>{counter}</h1>}
+      <button onClick={() => setCounter(counter + 1)}>Count!</button>
+      <button onClick={() => setHidden(!hidden)}>Hide/Show</button>
+    </React.Fragment>
   );
 }
 
